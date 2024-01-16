@@ -33,13 +33,13 @@ I am an undergraduate Computer science and Engineering student at Dian Nuswantor
 </div>-->
 
 
-<h2>👀 My github Stats</h2>
+<!-- <h2>👀 My github Stats</h2>
 
 <div>
-<!--   <p align="center">
+  <p align="center">
     <b><em>Now listening to:</em></b> <br/>
     <img src="https://spotify-github-profile.vercel.app/api/view?uid=Bhargavi-hash&cover_image=true&theme=novatorem" alt="Now Listenting to" />
-  </p> -->
+  </p> 
   
   <p align="center">
   <b><em>GitHub Stats:</em></b> <br/>
@@ -48,7 +48,7 @@ I am an undergraduate Computer science and Engineering student at Dian Nuswantor
 </div>
 
 ![My github status](https://github-readme-stats.vercel.app/api?username=Bhargavi-hash&show_icons=true&include_all_commits=true)
-![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=Bhargavi-hash&layout=compact)
+![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=Bhargavi-hash&layout=compact)-->
 
 ---------------------------------------------------------------------------------------------------------------------
 Credits: <a href="https://github.com/filipusarif">filipusarif</a>
