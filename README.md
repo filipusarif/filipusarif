@@ -13,8 +13,8 @@
 I am an undergraduate Computer science and Engineering student at Dian Nuswantoro University. C++, Python, Javascript, and PHP are the programming languages I am good at. I love to learn and build something new, productive, innovative and creative.
 * **I am interested in Web designing, and Web development**
 - 🌱 I’m currently learning ...
-  - Django
   - React js
+  - NextJS
 - 👯 I’m looking forward to collaborate on open source projects.
 - ✔ Ask me about anything, I am happy to help, only if the ball is in my court!😉<br>
 - Outside tech, 🎵 listen to music.
