@@ -2,7 +2,7 @@
 <h3 align="center">I am an undergraduate Computer science and Engineering student at Dian Nuswantoro University. C++, Python, Javascript, and PHP are the programming languages I am good at. I love to learn and build something new, productive, innovative and creative.</h3>
 <!-- <img align="right" alt="Coder" width="450" margin="50px" src="https://camo.githubusercontent.com/5ddf73ad3a205111cf8c686f687fc216c2946a75005718c8da5b837ad9de78c9/68747470733a2f2f7468756d62732e6766796361742e636f6d2f4576696c4e657874446576696c666973682d736d616c6c2e676966"> -->
 <!-- <img src="https://github.com/ysherqawi/ysherqawi/blob/master/images/developer.gif" alt="A Developer Sitting In Front Of a Computer" style="margin-top:-40px" align="right" width="465" height="365" /> -->
-<img align="right" src="https://github.com/rajaprerak/rajaprerak/blob/master/developer.gif" alt="Coder GIF" style="margin-top:-40px" align="right" width="365" height="265">
+<img align="right" src="https://github.com/rajaprerak/rajaprerak/blob/master/developer.gif" alt="Coder GIF" style="margin-top:-40px" align="right" width="380" height="280">
 
 
 <p align="left" margin="100px"> <img src="https://komarev.com/ghpvc/?username=filipusarif&label=Profile%20views&color=0e75b6&style=flat" alt="filipusarif" /> </p>
@@ -52,7 +52,7 @@
   <a href="https://www.python.org" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" alt="python" width="40" height="40"/> </a> 
   <a href="https://reactjs.org/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original-wordmark.svg" alt="react" width="40" height="40"/> </a> </p>
 
-<br>
+
 
 <p><img align="left" src="https://github-readme-stats.vercel.app/api/top-langs?username=filipusarif&show_icons=true&locale=en&layout=compact" alt="filipusarfi" /></p>
 <p>&nbsp;<img align="center" src="https://github-readme-stats.vercel.app/api?username=filipusarif&show_icons=true&locale=en" alt="filipusarif" /></p>
