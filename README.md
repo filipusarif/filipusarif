@@ -13,6 +13,8 @@
 - 👨‍💻 All of my projects are available at [Link](https://github.com/filipusarif?tab=repositories)
 
 - 📫 How to reach me **filipusarif10@gmail.com**
+  
+- 📔 See my [portfolio](https://filipusarif.vercel.app/) 
 
 
 <h3 align="left">Connect with me:</h3>
