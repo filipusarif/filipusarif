@@ -54,8 +54,8 @@
 
 
 <p>
-<img align="center" src="https://github-readme-stats.vercel.app/api?username=filipusarif&show_icons=true&locale=en&theme=merko" alt="filipusarif" width="50%"/>
-<img align="center" src="https://github-readme-streak-stats.herokuapp.com/?user=filipusarif&theme=merko" alt="filipusarif" width="50%" />
+<img align="center" src="https://github-readme-stats.vercel.app/api?username=filipusarif&show_icons=true&locale=en&theme=merko" alt="filipusarif" width="45%"/>
+<img align="center" src="https://github-readme-streak-stats.herokuapp.com/?user=filipusarif&theme=merko" alt="filipusarif" width="45%" />
 <p align="center">
 <img align="left" src="https://github-readme-stats.vercel.app/api/top-langs?username=filipusarif&show_icons=true&locale=en&layout=compact&theme=merko" alt="filipusarfi"/>
 </p>
