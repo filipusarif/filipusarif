@@ -54,6 +54,6 @@
 
 
 
-<img align="left" src="https://github-readme-stats.vercel.app/api/top-langs?username=filipusarif&show_icons=true&locale=en&layout=compact&theme=radical" alt="filipusarfi" />
-<img align="center" src="https://github-readme-stats.vercel.app/api?username=filipusarif&show_icons=true&locale=en&theme=radical" alt="filipusarif" />
-<img align="center" src="https://github-readme-streak-stats.herokuapp.com/?user=filipusarif&theme=radical" alt="filipusarif" />
+<img align="left" src="https://github-readme-stats.vercel.app/api/top-langs?username=filipusarif&show_icons=true&locale=en&layout=compact&theme=radical" alt="filipusarfi" width="50%"/>
+<img align="center" src="https://github-readme-stats.vercel.app/api?username=filipusarif&show_icons=true&locale=en&theme=radical" alt="filipusarif" widht="50%"/>
+<img align="center" src="https://github-readme-streak-stats.herokuapp.com/?user=filipusarif&theme=radical" alt="filipusarif" width="50%" />
