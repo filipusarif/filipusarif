@@ -56,5 +56,7 @@
 <p>
 <img align="center" src="https://github-readme-stats.vercel.app/api?username=filipusarif&show_icons=true&locale=en&theme=radical" alt="filipusarif" widht="40%"/>
 <img align="center" src="https://github-readme-streak-stats.herokuapp.com/?user=filipusarif&theme=radical" alt="filipusarif" />
+<p align="center">
 <img align="left" src="https://github-readme-stats.vercel.app/api/top-langs?username=filipusarif&show_icons=true&locale=en&layout=compact&theme=radical" alt="filipusarfi"/>
+</p>
 </p>
