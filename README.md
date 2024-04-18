@@ -1,7 +1,9 @@
 <h1 align="center">Hi 👋, I'm Filipus Arif</h1>
-<h3 align="center">I am an undergraduate Computer science and Engineering student at Dian Nuswantoro University. C++, Python, Javascript, and PHP are the programming languages I am good at. I love to learn and build something new, productive, innovative and creative.</h3>
+<!-- <h3 align="center">I am an undergraduate Computer science and Engineering student at Dian Nuswantoro University. C++, Python, Javascript, and PHP are the programming languages I am good at. I love to learn and build something new, productive, innovative and creative.</h3> -->
 <!-- <img align="right" alt="Coder" width="450" margin="50px" src="https://camo.githubusercontent.com/5ddf73ad3a205111cf8c686f687fc216c2946a75005718c8da5b837ad9de78c9/68747470733a2f2f7468756d62732e6766796361742e636f6d2f4576696c4e657874446576696c666973682d736d616c6c2e676966"> -->
 <!-- <img src="https://github.com/ysherqawi/ysherqawi/blob/master/images/developer.gif" alt="A Developer Sitting In Front Of a Computer" style="margin-top:-40px" align="right" width="465" height="365" /> -->
+
+![Cover](Profile2/coverImg.gif)
 <img align="right" src="https://github.com/rajaprerak/rajaprerak/blob/master/developer.gif" alt="Coder GIF" style="margin-top:-40px" align="right" width="380" height="280">
 
 
