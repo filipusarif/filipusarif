@@ -5,7 +5,7 @@
 
 
 
-<h1 align="center">Hi👋, I'm Filipus Arif</h1>
+<h1 align="center">Hi 👋, I'm Filipus Arif</h1>
 <img align="right" src="https://github.com/rajaprerak/rajaprerak/blob/master/developer.gif" alt="Coder GIF" style="margin-top:-40px" align="right" width="380" height="280">
 
 
