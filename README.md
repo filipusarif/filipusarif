@@ -1,4 +1,4 @@
-<!-- <h3 align="center">I am an undergraduate Computer science and Engineering student at Dian Nuswantoro University. C++, Python, Javascript, and PHP are the programming languages I am good at. I love to learn and build something new, productive, innovative and creative.</h3> -->
+
 
 ![Cropped Image](https://github.com/filipusarif/filipusarif/assets/116370829/8f5f6031-1e64-4e63-9c7b-a9b8c8362e0d)
 
