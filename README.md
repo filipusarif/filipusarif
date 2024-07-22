@@ -26,7 +26,6 @@ Hi 👋, I'm Filipus Arif<br>
 <a href="https://www.instagram.com/filipusarif._/" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/instagram.svg" alt="_mr.purvesh_" height="30" width="40" /></a>
 
 <!-- <a href="https://codeforces.com/profile/mrpurvesh" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/codeforces.svg" alt="mrpurvesh" height="30" width="40" /></a> -->
-<!-- <a href="https://www.leetcode.com/mrpurvesh" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/leet-code.svg" alt="mrpurvesh" height="30" width="40" /></a> -->
 
 
 
