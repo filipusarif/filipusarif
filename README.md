@@ -1,5 +1,3 @@
-
-
 ![Cropped Image](https://github.com/filipusarif/filipusarif/assets/116370829/8f5f6031-1e64-4e63-9c7b-a9b8c8362e0d)
 
 
