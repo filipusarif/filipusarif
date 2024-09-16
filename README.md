@@ -1,6 +1,5 @@
 ![Cropped Image](https://github.com/filipusarif/filipusarif/assets/116370829/8f5f6031-1e64-4e63-9c7b-a9b8c8362e0d)
 
-
 <!--<img align="right" src="https://github.com/rajaprerak/rajaprerak/blob/master/developer.gif" alt="Coder GIF" style="margin-top:-40px" align="right" width="380" height="280"> -->
 
 
