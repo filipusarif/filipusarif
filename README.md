@@ -2,7 +2,6 @@
 
 <!--<img align="right" src="https://github.com/rajaprerak/rajaprerak/blob/master/developer.gif" alt="Coder GIF" style="margin-top:-40px" align="right" width="380" height="280"> -->
 
-
 <p align="left" margin="100px"> <img src="https://komarev.com/ghpvc/?username=filipusarif&label=Profile%20views&color=0e75b6&style=flat" alt="filipusarif" /> </p>
 
 Hi 👋, I'm Filipus Arif<br>
