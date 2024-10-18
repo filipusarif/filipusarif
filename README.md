@@ -9,7 +9,6 @@ Hi 👋, I'm Filipus Arif<br>
 📫 How to reach me **filipusarif10@gmail.com**<br>
 📔 See my [portfolio](https://filipusarif.vercel.app/) <br>
 
-
 <h3 align="left">Connect with me:</h3>
 <p align="left">
 
