@@ -3,7 +3,6 @@
 
 
 
-
 <p align="left" margin="100px"> <img src="https://komarev.com/ghpvc/?username=filipusarif&label=Profile%20views&color=0e75b6&style=flat" alt="filipusarif" /> </p>
 Hi 👋, I'm Filipus Arif<br>
 🔭 I’m currently studying on **Dian Nuswantoro University**<br>
