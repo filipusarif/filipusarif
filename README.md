@@ -5,7 +5,7 @@
 <p align="left" margin="100px"> <img src="https://komarev.com/ghpvc/?username=filipusarif&label=Profile%20views&color=0e75b6&style=flat" alt="filipusarif" /> </p>
 Hi 👋, I'm Filipus Arif<br>
 🔭 I’m currently studying on **Dian Nuswantoro University**<br>
-🌱 I’m currently learning **Full Stack Web Development**<br>
+🌱 I’m currently learning **Full Stack Web Developer**<br>
 👨‍💻 All of my projects are available at [Link](https://github.com/filipusarif?tab=repositories)<br>
 📫 How to reach me **filipusarif10@gmail.com**<br>
 📔 See my [portfolio](https://filipusarif.my.id/) <br>
