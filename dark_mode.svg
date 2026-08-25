@@ -1,4 +1,5 @@
-<svg width="1150" height="550" xmlns="http://www.w3.org/2000/svg">
+<?xml version='1.0' encoding='UTF-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1150" height="550">
   <style>
     .bg { fill: #16181d; rx: 15; } /* Background warna terminal gelap */
     .ascii { font-family: monospace; font-size: 10px; fill: #d8dee9; letter-spacing: 0px; }
@@ -101,8 +102,8 @@
     <!-- Metrik GitHub Dinamis (Diperbarui oleh Python Script) -->
     <!-- PERHATIAN: JANGAN ubah bagian tspan dengan id="..." -->
     <tspan x="480" dy="2em" class="header">- GitHub Stats </tspan><tspan class="separator">-----------------------------------------------------------</tspan>
-    <tspan x="480" dy="1.8em" class="label">. Repos: </tspan><tspan id="repo_data_dots">. . . . </tspan><tspan id="repo_data" class="value">0</tspan><tspan class="label"> {Contributed: </tspan><tspan id="contrib_data" class="value">0</tspan><tspan class="label">} | Stars: </tspan><tspan id="star_data_dots">. . . . </tspan><tspan id="star_data" class="value">0</tspan>
-    <tspan x="480" dy="1.3em" class="label">. Commits: </tspan><tspan id="commit_data_dots">. . . </tspan><tspan id="commit_data" class="value">0</tspan><tspan class="label"> | Followers: </tspan><tspan id="follower_data_dots">. . . </tspan><tspan id="follower_data" class="value">0</tspan>
-    <tspan x="480" dy="1.3em" class="label">. Lines of Code on GitHub: </tspan><tspan id="loc_data" class="value">0</tspan><tspan class="label"> ( </tspan><tspan id="loc_add" class="loc-add">0</tspan><tspan class="loc-add">++</tspan><tspan class="label">, </tspan><tspan id="loc_del" class="loc-del">0</tspan><tspan class="loc-del">--</tspan><tspan class="label"> )</tspan>
+    <tspan x="480" dy="1.8em" class="label">. Repos: </tspan><tspan id="repo_data_dots"> ... </tspan><tspan id="repo_data" class="value">118</tspan><tspan class="label"> {Contributed: </tspan><tspan id="contrib_data" class="value">158</tspan><tspan class="label">} | Stars: </tspan><tspan id="star_data_dots"> ............ </tspan><tspan id="star_data" class="value">15</tspan>
+    <tspan x="480" dy="1.3em" class="label">. Commits: </tspan><tspan id="commit_data_dots"> ................. </tspan><tspan id="commit_data" class="value">1,355</tspan><tspan class="label"> | Followers: </tspan><tspan id="follower_data_dots"> ........ </tspan><tspan id="follower_data" class="value">45</tspan>
+    <tspan x="480" dy="1.3em" class="label">. Lines of Code on GitHub: </tspan><tspan id="loc_data" class="value">2,430,356</tspan><tspan class="label"> ( </tspan><tspan id="loc_add" class="loc-add">11,848,213</tspan><tspan class="loc-add">++</tspan><tspan class="label">, </tspan><tspan id="loc_del" class="loc-del">9,417,857</tspan><tspan class="loc-del">--</tspan><tspan class="label"> )</tspan>
   </text>
 </svg>
