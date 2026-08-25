@@ -71,39 +71,39 @@
   <!-- ========================================== -->
   <!-- BAGIAN KANAN: TERMINAL INFO & STATS        -->
   <!-- ========================================== -->
-  <text x="400" y="40" class="text" xml:space="preserve">
+  <text x="400" y="70" class="text" xml:space="preserve">
     <!-- Judul -->
-    <tspan class="header">filipus@arif </tspan><tspan class="separator">-------------------------------------------------------------</tspan>
+    <tspan class="header">filipus@arif </tspan><tspan class="header">-------------------------------------------------------------</tspan>
     
     <!-- OS & System Info -->
-    <tspan x="480" dy="1.8em" class="label">. OS: </tspan><tspan class="value">................................................. Windows 11, Linux</tspan>
-    <tspan x="480" dy="1.3em" class="label">. Host: </tspan><tspan class="value">.................................................. GitHub Profile</tspan>
-    <tspan x="480" dy="1.3em" class="label">. Kernel: </tspan><tspan class="value">................................................ AI/ML Engineer</tspan>
-    <tspan x="480" dy="1.3em" class="label">. Uptime: </tspan><tspan class="value">.............................................. 24/7, 365 Days/Y</tspan>
-    <tspan x="480" dy="1.3em" class="label">. IDE: </tspan><tspan class="value">......................................... VSCode, Jupyter Notebook</tspan>
-    <tspan x="480" dy="1.3em" class="label">. University: </tspan><tspan class="value">................................ Dian Nuswantoro University</tspan>
+    <tspan x="480" dy="1.8em" class="label">. OS: </tspan><tspan class="separator">................................................. </tspan><tspan class="value">Windows 11, Linux</tspan>
+    <tspan x="480" dy="1.3em" class="label">. Host: </tspan><tspan class="separator">.................................................. </tspan><tspan class="value">GitHub Profile</tspan>
+    <tspan x="480" dy="1.3em" class="label">. Kernel: </tspan><tspan class="separator">................................................ </tspan><tspan class="value">AI/ML Engineer</tspan>
+    <tspan x="480" dy="1.3em" class="label">. Uptime: </tspan><tspan class="separator">.............................................. </tspan><tspan class="value">24/7, 365 Days/Y</tspan>
+    <tspan x="480" dy="1.3em" class="label">. IDE: </tspan><tspan class="separator">......................................... </tspan><tspan class="value">VSCode, Jupyter Notebook</tspan>
+    <tspan x="480" dy="1.3em" class="label">. University: </tspan><tspan class="separator">................................ </tspan><tspan class="value">Dian Nuswantoro University</tspan>
     
     <!-- Skills & Tools -->
-    <tspan x="480" dy="2em" class="label">. Languages.Programming: </tspan><tspan class="value">............. Python, C++, Java, JavaScript, PHP</tspan>
-    <tspan x="480" dy="1.3em" class="label">. Languages.Data: </tspan><tspan class="value">....................................... SQL, JSON, YAML</tspan>
-    <tspan x="480" dy="1.3em" class="label">. Frameworks.AI_ML: </tspan><tspan class="value">.............. PyTorch, TensorFlow, Langchain, OpenCV</tspan>
-    <tspan x="480" dy="1.3em" class="label">. Frameworks.Backend: </tspan><tspan class="value">............................ FastAPI, Flask, Django</tspan>
+    <tspan x="480" dy="2em" class="label">. Languages.Programming: </tspan><tspan class="separator">............. </tspan><tspan class="value">Python, C++, Java, JavaScript, PHP</tspan>
+    <tspan x="480" dy="1.3em" class="label">. Languages.Data: </tspan><tspan class="separator">....................................... </tspan><tspan class="value">SQL, JSON, YAML</tspan>
+    <tspan x="480" dy="1.3em" class="label">. Frameworks.AI_ML: </tspan><tspan class="separator">.............. </tspan><tspan class="value">PyTorch, TensorFlow, Langchain, OpenCV</tspan>
+    <tspan x="480" dy="1.3em" class="label">. Frameworks.Backend: </tspan><tspan class="separator">............................ </tspan><tspan class="value">FastAPI, Flask, Django</tspan>
     
     <!-- Hobbies -->
-    <tspan x="480" dy="2em" class="label">. Hobbies.Software: </tspan><tspan class="value">................... LLM Fine-tuning, RAG Architecture</tspan>
-    <tspan x="480" dy="1.3em" class="label">. Hobbies.Hardware: </tspan><tspan class="value">............................ Edge Hardware Enthusiast</tspan>
+    <tspan x="480" dy="2em" class="label">. Hobbies.Software: </tspan><tspan class="separator">................... </tspan><tspan class="value">LLM Fine-tuning, RAG Architecture</tspan>
+    <tspan x="480" dy="1.3em" class="label">. Hobbies.Hardware: </tspan><tspan class="separator">............................ </tspan><tspan class="value">Edge Hardware Enthusiast</tspan>
     
     <!-- Contact Info -->
-    <tspan x="480" dy="2em" class="header">- Contact </tspan><tspan class="separator">----------------------------------------------------------------</tspan>
-    <tspan x="480" dy="1.8em" class="label">. Email: </tspan><tspan class="value">........................................ filipusarif10@gmail.com</tspan>
-    <tspan x="480" dy="1.3em" class="label">. LinkedIn: </tspan><tspan class="value">...................................... filipus-arif-kristiyan</tspan>
-    <tspan x="480" dy="1.3em" class="label">. Personal.Website: </tspan><tspan class="value">................................... filipusarif.my.id</tspan>
+    <tspan x="480" dy="2em" class="header">- Contact </tspan><tspan class="header">----------------------------------------------------------------</tspan>
+    <tspan x="480" dy="1.8em" class="label">. Email: </tspan><tspan class="separator">........................................ </tspan><tspan class="value">filipusarif10@gmail.com</tspan>
+    <tspan x="480" dy="1.3em" class="label">. LinkedIn: </tspan><tspan class="separator">...................................... </tspan><tspan class="value">filipus-arif-kristiyan</tspan>
+    <tspan x="480" dy="1.3em" class="label">. Personal.Website: </tspan><tspan class="separator">................................... </tspan><tspan class="value">filipusarif.my.id</tspan>
     
     <!-- Metrik GitHub Dinamis (Diperbarui oleh Python Script) -->
     <!-- PERHATIAN: JANGAN ubah bagian tspan dengan id="..." -->
-    <tspan x="480" dy="2em" class="header">- GitHub Stats </tspan><tspan class="separator">-----------------------------------------------------------</tspan>
-    <tspan x="480" dy="1.8em" class="label">. Repos: </tspan><tspan id="repo_data_dots"> ... </tspan><tspan id="repo_data" class="value">118</tspan><tspan class="label"> {Contributed: </tspan><tspan id="contrib_data" class="value">158</tspan><tspan class="label">} | Stars: </tspan><tspan id="star_data_dots"> ............ </tspan><tspan id="star_data" class="value">15</tspan>
-    <tspan x="480" dy="1.3em" class="label">. Commits: </tspan><tspan id="commit_data_dots"> ................. </tspan><tspan id="commit_data" class="value">1,356</tspan><tspan class="label"> | Followers: </tspan><tspan id="follower_data_dots"> ........ </tspan><tspan id="follower_data" class="value">45</tspan>
-    <tspan x="480" dy="1.3em" class="label">. Lines of Code on GitHub: </tspan><tspan id="loc_data" class="value">2,430,574</tspan><tspan class="label"> ( </tspan><tspan id="loc_add" class="loc-add">11,848,443</tspan><tspan class="loc-add">++</tspan><tspan class="label">, </tspan><tspan id="loc_del" class="loc-del">9,417,869</tspan><tspan class="loc-del">--</tspan><tspan class="label"> )</tspan>
+    <tspan x="480" dy="2em" class="header">- GitHub Stats </tspan><tspan class="header">-----------------------------------------------------------</tspan>
+    <tspan x="480" dy="1.8em" class="label">. Repos: </tspan><tspan id="repo_data_dots" class="separator"> ... </tspan><tspan id="repo_data" class="value">118</tspan><tspan class="label"> {Contributed: </tspan><tspan id="contrib_data" class="value">158</tspan><tspan class="label">} | Stars: </tspan><tspan id="star_data_dots" class="separator"> ............ </tspan><tspan id="star_data" class="value">15</tspan>
+    <tspan x="480" dy="1.3em" class="label">. Commits: </tspan><tspan id="commit_data_dots" class="separator"> .................. </tspan><tspan id="commit_data" class="value">1,355</tspan><tspan class="label"> | Followers: </tspan><tspan id="follower_data_dots" class="separator"> ........ </tspan><tspan id="follower_data" class="value">45</tspan>
+    <tspan x="480" dy="1.3em" class="label">. Lines of Code on GitHub: </tspan><tspan id="loc_data" class="value">2,430,356</tspan><tspan class="label"> ( </tspan><tspan id="loc_add" class="loc-add">11,848,213</tspan><tspan class="loc-add">++</tspan><tspan class="label">, </tspan><tspan id="loc_del" class="loc-del">9,417,857</tspan><tspan class="loc-del">--</tspan><tspan class="label"> )</tspan>
   </text>
 </svg>
