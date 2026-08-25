@@ -1,0 +1,108 @@
+<svg width="1150" height="550" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .bg { fill: #16181d; rx: 15; } /* Background warna terminal gelap */
+    .ascii { font-family: monospace; font-size: 10px; fill: #d8dee9; letter-spacing: 0px; }
+    .text { font-family: "Courier New", monospace; font-size: 13px; }
+    .label { fill: #d08770; } /* Warna Oranye untuk label */
+    .value { fill: #88c0d0; } /* Warna Biru terang untuk nilai */
+    .header { fill: #eceff4; font-weight: bold; }
+    .separator { fill: #4c566a; }
+    .loc-add { fill: #a3be8c; } /* Hijau untuk baris kode ditambah */
+    .loc-del { fill: #bf616a; } /* Merah untuk baris kode dihapus */
+  </style>
+  
+  <rect width="100%" height="100%" class="bg"/>
+
+  <!-- ========================================== -->
+  <!-- BAGIAN KIRI: ASCII ART                     -->
+  <!-- ========================================== -->
+  <text x="0" y="30" class="ascii" xml:space="preserve">
+    <tspan x="0" dy="1.2em">                                              @@@@@@@@@@@@@                                         </tspan>
+    <tspan x="0" dy="1.2em">                                          @@@@@@@z@@@}rQw@@@@w                                      </tspan>
+    <tspan x="0" dy="1.2em">                                        @@@@@zh@@@@@@@@@@@@@@@@                                     </tspan>
+    <tspan x="0" dy="1.2em">                                      @@QwhM@@@@whw}!!rMh@@@@@@@                                    </tspan>
+    <tspan x="0" dy="1.2em">                                    @@@,@z@@@r. .   ..      Q@@@                                    </tspan>
+    <tspan x="0" dy="1.2em">                                   @@zQ@@@@       . .!,+.,.  !@@@@                                  </tspan>
+    <tspan x="0" dy="1.2em">                                  @@@Q@Mrr     .. ,. .   ,,.  r@M@@                                 </tspan>
+    <tspan x="0" dy="1.2em">                                  @zw@@}|                 .    @@w@@                                </tspan>
+    <tspan x="0" dy="1.2em">                                 @@w@@+.  .!,!!,.,....,,,,,... Mh,M@                                </tspan>
+    <tspan x="0" dy="1.2em">                                  @M@,          ,.,..       ,. ,@@z@@                               </tspan>
+    <tspan x="0" dy="1.2em">                                  @@@   M@w}!            |zz!   @@r@                                </tspan>
+    <tspan x="0" dy="1.2em">                                  @@h ,     .@@h}  !r@@M.    ,  @wM@                                </tspan>
+    <tspan x="0" dy="1.2em">                                   @w   }QQM+ , .  ,.! .Qzh|.   @M@                                 </tspan>
+    <tspan x="0" dy="1.2em">                                 M @@  |h@ @@ @..  ..}M @ }@},  @@@ +                               </tspan>
+    <tspan x="0" dy="1.2em">                                 @  @        , .+..+. !       , @   @                               </tspan>
+    <tspan x="0" dy="1.2em">                                 w .@          .   ,            MMw @                               </tspan>
+    <tspan x="0" dy="1.2em">                                  zQ   ,      ,!+.,!+        .    h,                                </tspan>
+    <tspan x="0" dy="1.2em">                                   w, ,!.  .+         |+    .+  } wM                                </tspan>
+    <tspan x="0" dy="1.2em">                                    z+. !, .  h@,@hM@r ! ..,! ,hM}                                  </tspan>
+    <tspan x="0" dy="1.2em">                                      +. .                 ,  r                                     </tspan>
+    <tspan x="0" dy="1.2em">                                      w.  !.|  ,, .,   +     }w                                     </tspan>
+    <tspan x="0" dy="1.2em">                                      .|...,r}Q  .. }Mz|,.. .w                                      </tspan>
+    <tspan x="0" dy="1.2em">                                       +Q|,,. h|@@@MQ  ..|. .@                                      </tspan>
+    <tspan x="0" dy="1.2em">                                         M. .,        .    h,M                                      </tspan>
+    <tspan x="0" dy="1.2em">                                          w!.           !@! ,.                                      </tspan>
+    <tspan x="0" dy="1.2em">                                          h,,@@hwzQh@@@@|!, ! @@                                    </tspan>
+    <tspan x="0" dy="1.2em">                                          z     |Mh}  ..,     @@z                                   </tspan>
+    <tspan x="0" dy="1.2em">                                          @ ..     .!.,.,.   @hw@@                                  </tspan>
+    <tspan x="0" dy="1.2em">                                         @@  .}MMhr,,..    @Mhzz@@                                  </tspan>
+    <tspan x="0" dy="1.2em">                                        ,@@              MMMzrrrQh@@@                               </tspan>
+    <tspan x="0" dy="1.2em">                                       @@w@!  !,   .,  .@MwrzrQzr|@r@@@@Q                           </tspan>
+    <tspan x="0" dy="1.2em">                                   @@@@hQ+h@   ,,,.!  @MhrwzzQQ|!@!Q|QhM@@@@                        </tspan>
+    <tspan x="0" dy="1.2em">                               @@@@@@M+.!|!@@  ,!!.  MMwzzQQzrr+@z|QQM}zQwM@@@@                     </tspan>
+    <tspan x="0" dy="1.2em">                          @@@@@Mh@wwQ! |@ !@@@     @@ .!Q|zwzr}@Q+z||@}z}|rzww@@@@                  </tspan>
+    <tspan x="0" dy="1.2em">                       @@@@@zz+z@z+z. @@@@Qwzz   @@@@@@r}||Q|+@rr|}|@|||@h|Q}r|rh@@@w               </tspan>
+    <tspan x="0" dy="1.2em">                     @@hh|rh}+z@@rr.r@@@@}@zQMr@@@M@@@M@@h}z|r@}r|Q@z+Q@+}r@rhQr}rw@@@@             </tspan>
+    <tspan x="0" dy="1.2em">                    @@h}hrw|Mr|@||QM@@}+||MQ|@Q+++M@wrwQQ@hw!@@r||@h!Mhzr@|hw|+wwzrh|M@@            </tspan>
+    <tspan x="0" dy="1.2em">                  @@z@Q|Mhzz@rM@||Qr|rrQQQr@Qzrw@@@z+|QrrQrzrzr+|@@.MMw}@,@Q}@}QMzQrrQQ@|           </tspan>
+    <tspan x="0" dy="1.2em">                  @w}@h+Mz+@h!@Q}zzzzQQQQQQr@rh@Mzw+}ww|zzrzzQz|Q@+|@Qwz.@Qw+r@z}rhzrzzM@           </tspan>
+        <!-- <tspan x="0" dy="1.2em">                 @@wr,@,w+}@|QMzrQzQzQQQQQwrzQ@hr|rrzM}zzzzzzM|rhw.@zww!@@}}r@!wMzrzQrzz@           </tspan>
+        <tspan x="0" dy="1.2em">                @@zw|!@+z}h@.@z|QzzQzQQQzwwzh@Qz}z|rM|QzQrzzzh|z@+@hQw|}@,|@|wMQ|zwQrrQr@           </tspan>
+        <tspan x="0" dy="1.2em">                @@}@z!M}r}@@,M|QzzQQrzQzQzQz@  @zzz@|zzQrQQrww+Qw,@|QQ!@!hMzhQ|rzzr|zwzz@           </tspan>
+        <tspan x="0" dy="1.2em">               @@rM}@r@+r!@r}zzzrzrQzwQzQQwwhrw|rrwzrzQzzQQrMQ|zz+@QQ|M+@|QQr|zQz|zQzw|w@           </tspan>
+        <tspan x="0" dy="1.2em">              @MQ|MQ+@h||}@|}QzhzwzzzzzzwrMwQ|hzrMQrQzQ|rQrrMr|hQ}@zz!@h|rQzrzQ||wQrQzrr@           </tspan>
+        <tspan x="0" dy="1.2em">             @@zh|r@|.@r}|@QrzQQzrQzQQrzwr@|r|QQhh|zzzQQQzzzM}Q@rz@r|@Qr}zQrzw}|Mrzzh|zz@@          </tspan>
+        <tspan x="0" dy="1.2em">             @Q|QM}M@,wz+r@@+rwzzQzrwQrwzzM|zQQzMzzrQzrzrz|Qzzz@|h@r,@}}Qzzwh}hhzzQhrrQwz@          </tspan>
+        <tspan x="0" dy="1.2em">             @QzrrM+@Q}@!rM@|rQQQzQzQQrwrQQ|zrrQw|QQwrzQQzQQrrhM}Mw!h@!QQwMz}@wrz@|rzrQrr@          </tspan>
+        <tspan x="0" dy="1.2em">            @}       M @ Q,@+ .,... . .. ,.. .,+.  ,  ,.,,  ..r} !. @ .}++ +}  !  .     .M          </tspan> -->
+  </text>
+
+  <!-- ========================================== -->
+  <!-- BAGIAN KANAN: TERMINAL INFO & STATS        -->
+  <!-- ========================================== -->
+  <text x="400" y="40" class="text" xml:space="preserve">
+    <!-- Judul -->
+    <tspan class="header">filipus@arif </tspan><tspan class="separator">-------------------------------------------------------------</tspan>
+    
+    <!-- OS & System Info -->
+    <tspan x="480" dy="1.8em" class="label">. OS: </tspan><tspan class="value">................................................. Windows 11, Linux</tspan>
+    <tspan x="480" dy="1.3em" class="label">. Host: </tspan><tspan class="value">.................................................. GitHub Profile</tspan>
+    <tspan x="480" dy="1.3em" class="label">. Kernel: </tspan><tspan class="value">................................................ AI/ML Engineer</tspan>
+    <tspan x="480" dy="1.3em" class="label">. Uptime: </tspan><tspan class="value">.............................................. 24/7, 365 Days/Y</tspan>
+    <tspan x="480" dy="1.3em" class="label">. IDE: </tspan><tspan class="value">......................................... VSCode, Jupyter Notebook</tspan>
+    <tspan x="480" dy="1.3em" class="label">. University: </tspan><tspan class="value">................................ Dian Nuswantoro University</tspan>
+    
+    <!-- Skills & Tools -->
+    <tspan x="480" dy="2em" class="label">. Languages.Programming: </tspan><tspan class="value">............. Python, C++, Java, JavaScript, PHP</tspan>
+    <tspan x="480" dy="1.3em" class="label">. Languages.Data: </tspan><tspan class="value">....................................... SQL, JSON, YAML</tspan>
+    <tspan x="480" dy="1.3em" class="label">. Frameworks.AI_ML: </tspan><tspan class="value">.............. PyTorch, TensorFlow, Langchain, OpenCV</tspan>
+    <tspan x="480" dy="1.3em" class="label">. Frameworks.Backend: </tspan><tspan class="value">............................ FastAPI, Flask, Django</tspan>
+    
+    <!-- Hobbies -->
+    <tspan x="480" dy="2em" class="label">. Hobbies.Software: </tspan><tspan class="value">................... LLM Fine-tuning, RAG Architecture</tspan>
+    <tspan x="480" dy="1.3em" class="label">. Hobbies.Hardware: </tspan><tspan class="value">............................ Edge Hardware Enthusiast</tspan>
+    
+    <!-- Contact Info -->
+    <tspan x="480" dy="2em" class="header">- Contact </tspan><tspan class="separator">----------------------------------------------------------------</tspan>
+    <tspan x="480" dy="1.8em" class="label">. Email: </tspan><tspan class="value">........................................ filipusarif10@gmail.com</tspan>
+    <tspan x="480" dy="1.3em" class="label">. LinkedIn: </tspan><tspan class="value">...................................... filipus-arif-kristiyan</tspan>
+    <tspan x="480" dy="1.3em" class="label">. Personal.Website: </tspan><tspan class="value">................................... filipusarif.my.id</tspan>
+    
+    <!-- Metrik GitHub Dinamis (Diperbarui oleh Python Script) -->
+    <!-- PERHATIAN: JANGAN ubah bagian tspan dengan id="..." -->
+    <tspan x="480" dy="2em" class="header">- GitHub Stats </tspan><tspan class="separator">-----------------------------------------------------------</tspan>
+    <tspan x="480" dy="1.8em" class="label">. Repos: </tspan><tspan id="repo_data_dots">. . . . </tspan><tspan id="repo_data" class="value">0</tspan><tspan class="label"> {Contributed: </tspan><tspan id="contrib_data" class="value">0</tspan><tspan class="label">} | Stars: </tspan><tspan id="star_data_dots">. . . . </tspan><tspan id="star_data" class="value">0</tspan>
+    <tspan x="480" dy="1.3em" class="label">. Commits: </tspan><tspan id="commit_data_dots">. . . </tspan><tspan id="commit_data" class="value">0</tspan><tspan class="label"> | Followers: </tspan><tspan id="follower_data_dots">. . . </tspan><tspan id="follower_data" class="value">0</tspan>
+    <tspan x="480" dy="1.3em" class="label">. Lines of Code on GitHub: </tspan><tspan id="loc_data" class="value">0</tspan><tspan class="label"> ( </tspan><tspan id="loc_add" class="loc-add">0</tspan><tspan class="loc-add">++</tspan><tspan class="label">, </tspan><tspan id="loc_del" class="loc-del">0</tspan><tspan class="loc-del">--</tspan><tspan class="label"> )</tspan>
+  </text>
+</svg>
