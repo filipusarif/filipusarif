@@ -24,17 +24,22 @@ def format_plural(unit):
 def simple_request(func_name, query, variables):
     max_retries = 3
     for attempt in range(max_retries):
-        request = requests.post('https://api.github.com/graphql', json={'query': query, 'variables':variables}, headers=HEADERS)
-        if request.status_code == 200:
-            return request
-        elif request.status_code == 502:
-            print(f"502 Bad Gateway pada {func_name}. Coba ulang {attempt+1}/{max_retries}...")
-            time.sleep(3) 
-        elif request.status_code == 403:
-            print(f"403 API Limit pada {func_name}. Tunggu 5 detik...")
-            time.sleep(5) 
-        else:
-            break 
+        try:
+            request = requests.post('https://api.github.com/graphql', json={'query': query, 'variables':variables}, headers=HEADERS, timeout=20)
+            if request.status_code == 200:
+                return request
+            elif request.status_code == 502:
+                print(f"502 Bad Gateway pada {func_name}. Coba ulang {attempt+1}/{max_retries}...")
+                time.sleep(3)
+            elif request.status_code == 403:
+                print(f"403 API Limit pada {func_name}. Tunggu 5 detik...")
+                time.sleep(5)
+            else:
+                break 
+        except requests.exceptions.RequestException as e:
+            print(f"Koneksi terputus di {func_name}. Coba ulang {attempt+1}/{max_retries}...")
+            time.sleep(4)
+            
     raise Exception(func_name, ' has failed with a', request.status_code, request.text, QUERY_COUNT)
 
 def graph_repos_stars(count_type, owner_affiliation, cursor=None, add_loc=0, del_loc=0):
@@ -107,21 +112,25 @@ def recursive_loc(owner, repo_name, data, cache_comment, addition_total=0, delet
     
     max_retries = 3
     for attempt in range(max_retries):
-        request = requests.post('https://api.github.com/graphql', json={'query': query, 'variables':variables}, headers=HEADERS)
-        
-        if request.status_code == 200:
-            if request.json()['data']['repository']['defaultBranchRef'] != None:
-                return loc_counter_one_repo(owner, repo_name, data, cache_comment, request.json()['data']['repository']['defaultBranchRef']['target']['history'], addition_total, deletion_total, my_commits)
-            else: 
-                return 0
-        elif request.status_code == 502:
-            print(f"502 Bad Gateway di {repo_name}. Coba ulang {attempt+1}/{max_retries}...")
-            time.sleep(4) # Tunggu 4 detik
-        elif request.status_code == 403:
-            print(f"403 Rate Limit di {repo_name}. Tunggu 10 detik...")
-            time.sleep(10)
-        else:
-            break
+        try:
+            request = requests.post('https://api.github.com/graphql', json={'query': query, 'variables':variables}, headers=HEADERS, timeout=20)
+            
+            if request.status_code == 200:
+                if request.json()['data']['repository']['defaultBranchRef'] != None:
+                    return loc_counter_one_repo(owner, repo_name, data, cache_comment, request.json()['data']['repository']['defaultBranchRef']['target']['history'], addition_total, deletion_total, my_commits)
+                else: 
+                    return 0
+            elif request.status_code == 502:
+                print(f"502 Bad Gateway di {repo_name}. Coba ulang {attempt+1}/{max_retries}...")
+                time.sleep(4)
+            elif request.status_code == 403:
+                print(f"403 Rate Limit di {repo_name}. Tunggu 10 detik...")
+                time.sleep(10)
+            else:
+                break
+        except requests.exceptions.RequestException as e:
+            print(f"Koneksi terputus saat mengambil data {repo_name}. Coba ulang {attempt+1}/{max_retries}...")
+            time.sleep(5)
             
     force_close_file(data, cache_comment) 
     if request.status_code == 403:
