@@ -11,6 +11,15 @@ USER_NAME = os.environ['USER_NAME']
 QUERY_COUNT = {'user_getter': 0, 'follower_getter': 0, 'graph_repos_stars': 0, 'recursive_loc': 0, 'graph_commits': 0, 'loc_query': 0}
 
 def daily_readme(birthday):
+    """
+    Calculates the exact age based on the provided birthday.
+
+    Args:
+        birthday (datetime): The user's birth date.
+
+    Returns:
+        str: Formatted string of the user's age (e.g., 'XX years, XX months, XX days').
+    """
     diff = relativedelta.relativedelta(datetime.datetime.today(), birthday)
     return '{} {}, {} {}, {} {}{}'.format(
         diff.years, 'year' + format_plural(diff.years), 
@@ -19,9 +28,32 @@ def daily_readme(birthday):
         ' 🎂' if (diff.months == 0 and diff.days == 0) else '')
 
 def format_plural(unit):
+    """
+    Returns an 's' if the unit is plural to properly format time strings.
+
+    Args:
+        unit (int): The number of time units (years, months, or days).
+
+    Returns:
+        str: 's' if unit is not 1, otherwise an empty string.
+    """
     return 's' if unit != 1 else ''
 
 def simple_request(func_name, query, variables):
+    """
+    Executes a GraphQL POST request to the GitHub API with retry logic for timeouts and limits.
+
+    Args:
+        func_name (str): The name of the function calling this request (for error logging).
+        query (str): The GraphQL query string.
+        variables (dict): The variables to pass alongside the GraphQL query.
+
+    Returns:
+        requests.Response: The successful response object from the API.
+
+    Raises:
+        Exception: If the request fails after maximum retries.
+    """
     max_retries = 3
     for attempt in range(max_retries):
         try:
@@ -29,20 +61,33 @@ def simple_request(func_name, query, variables):
             if request.status_code == 200:
                 return request
             elif request.status_code == 502:
-                print(f"502 Bad Gateway pada {func_name}. Coba ulang {attempt+1}/{max_retries}...")
+                print(f"502 Bad Gateway at {func_name}. Retrying {attempt+1}/{max_retries}...")
                 time.sleep(3)
             elif request.status_code == 403:
-                print(f"403 API Limit pada {func_name}. Tunggu 5 detik...")
+                print(f"403 API Limit at {func_name}. Waiting 5 seconds...")
                 time.sleep(5)
             else:
                 break 
         except requests.exceptions.RequestException as e:
-            print(f"Koneksi terputus di {func_name}. Coba ulang {attempt+1}/{max_retries}...")
+            print(f"Connection dropped at {func_name}. Retrying {attempt+1}/{max_retries}...")
             time.sleep(4)
             
     raise Exception(func_name, ' has failed with a', request.status_code, request.text, QUERY_COUNT)
 
 def graph_repos_stars(count_type, owner_affiliation, cursor=None, add_loc=0, del_loc=0):
+    """
+    Fetches the total repository count or total star count using GitHub's GraphQL API.
+
+    Args:
+        count_type (str): Either 'repos' to count repositories or 'stars' to count stargazers.
+        owner_affiliation (list): Repository affiliations to include (e.g., ['OWNER']).
+        cursor (str, optional): The pagination cursor. Defaults to None.
+        add_loc (int, optional): Legacy parameter, defaults to 0.
+        del_loc (int, optional): Legacy parameter, defaults to 0.
+
+    Returns:
+        int: The total count of repositories or stars.
+    """
     query_count('graph_repos_stars')
     query = '''
     query ($owner_affiliation: [RepositoryAffiliation], $login: String!, $cursor: String) {
@@ -75,6 +120,25 @@ def graph_repos_stars(count_type, owner_affiliation, cursor=None, add_loc=0, del
             return stars_counter(request.json()['data']['user']['repositories']['edges'])
 
 def recursive_loc(owner, repo_name, data, cache_comment, addition_total=0, deletion_total=0, my_commits=0, cursor=None):
+    """
+    Recursively fetches commits for a specific repository to calculate Lines of Code (LoC).
+
+    Args:
+        owner (str): The owner of the repository.
+        repo_name (str): The name of the repository.
+        data (list): Cache data lines.
+        cache_comment (list): The comment block at the top of the cache file.
+        addition_total (int, optional): Accumulated lines added. Defaults to 0.
+        deletion_total (int, optional): Accumulated lines deleted. Defaults to 0.
+        my_commits (int, optional): Accumulated commits by the user. Defaults to 0.
+        cursor (str, optional): Pagination cursor. Defaults to None.
+
+    Returns:
+        tuple or int: A tuple of (addition_total, deletion_total, my_commits) if successful, or 0 if empty.
+
+    Raises:
+        Exception: If the GraphQL request hits an anti-abuse limit or repeatedly fails.
+    """
     query_count('recursive_loc')
     query = '''
     query ($repo_name: String!, $owner: String!, $cursor: String) {
@@ -121,15 +185,15 @@ def recursive_loc(owner, repo_name, data, cache_comment, addition_total=0, delet
                 else: 
                     return 0
             elif request.status_code == 502:
-                print(f"502 Bad Gateway di {repo_name}. Coba ulang {attempt+1}/{max_retries}...")
+                print(f"502 Bad Gateway at {repo_name}. Retrying {attempt+1}/{max_retries}...")
                 time.sleep(4)
             elif request.status_code == 403:
-                print(f"403 Rate Limit di {repo_name}. Tunggu 10 detik...")
+                print(f"403 Rate Limit at {repo_name}. Waiting 10 seconds...")
                 time.sleep(10)
             else:
                 break
         except requests.exceptions.RequestException as e:
-            print(f"Koneksi terputus saat mengambil data {repo_name}. Coba ulang {attempt+1}/{max_retries}...")
+            print(f"Connection dropped while fetching data for {repo_name}. Retrying {attempt+1}/{max_retries}...")
             time.sleep(5)
             
     force_close_file(data, cache_comment) 
@@ -138,6 +202,22 @@ def recursive_loc(owner, repo_name, data, cache_comment, addition_total=0, delet
     raise Exception('recursive_loc() has failed with a', request.status_code, request.text, QUERY_COUNT)
 
 def loc_counter_one_repo(owner, repo_name, data, cache_comment, history, addition_total, deletion_total, my_commits):
+    """
+    Parses the commit history of a single repository to sum up lines of code changes.
+
+    Args:
+        owner (str): Repository owner.
+        repo_name (str): Repository name.
+        data (list): Cache file data lines.
+        cache_comment (list): Cache file comment block.
+        history (dict): The history edges returned by the GraphQL query.
+        addition_total (int): Current sum of added lines.
+        deletion_total (int): Current sum of deleted lines.
+        my_commits (int): Current sum of user's commits.
+
+    Returns:
+        tuple: (addition_total, deletion_total, my_commits) accumulated values.
+    """
     for node in history['edges']:
         if node['node']['author']['user'] is not None and node['node']['author']['user']['id'] == OWNER_ID['id']:
             my_commits += 1
@@ -149,6 +229,19 @@ def loc_counter_one_repo(owner, repo_name, data, cache_comment, history, additio
     else: return recursive_loc(owner, repo_name, data, cache_comment, addition_total, deletion_total, my_commits, history['pageInfo']['endCursor'])
 
 def loc_query(owner_affiliation, comment_size=0, force_cache=False, cursor=None, edges=[]):
+    """
+    Queries all repositories the user has access to, to prepare for LoC calculation.
+
+    Args:
+        owner_affiliation (list): Affiliations to filter repos (e.g., ['OWNER']).
+        comment_size (int, optional): Size of the comment block in the cache file. Defaults to 0.
+        force_cache (bool, optional): If True, forces a complete cache rebuild. Defaults to False.
+        cursor (str, optional): Pagination cursor. Defaults to None.
+        edges (list, optional): Accumulated repository edges. Defaults to [].
+
+    Returns:
+        list: Returns the output of cache_builder containing [loc_add, loc_del, total_loc, cached_status].
+    """
     query_count('loc_query')
     query = '''
     query ($owner_affiliation: [RepositoryAffiliation], $login: String!, $cursor: String) {
@@ -186,6 +279,19 @@ def loc_query(owner_affiliation, comment_size=0, force_cache=False, cursor=None,
         return cache_builder(edges + request.json()['data']['user']['repositories']['edges'], comment_size, force_cache)
 
 def cache_builder(edges, comment_size, force_cache, loc_add=0, loc_del=0):
+    """
+    Checks each repository against a local cache file to see if updates are needed to calculate LoC.
+
+    Args:
+        edges (list): A list of repository nodes from the GraphQL query.
+        comment_size (int): The number of lines occupied by the comment block in the cache file.
+        force_cache (bool): Whether to force flush and rebuild the cache.
+        loc_add (int, optional): Total lines added. Defaults to 0.
+        loc_del (int, optional): Total lines deleted. Defaults to 0.
+
+    Returns:
+        list: [total_additions, total_deletions, net_additions, boolean_is_cached].
+    """
     cached = True 
     filename = 'cache/'+hashlib.sha256(USER_NAME.encode('utf-8')).hexdigest()+'.txt' 
     os.makedirs(os.path.dirname(filename), exist_ok=True)
@@ -227,6 +333,14 @@ def cache_builder(edges, comment_size, force_cache, loc_add=0, loc_del=0):
     return [loc_add, loc_del, loc_add - loc_del, cached]
 
 def flush_cache(edges, filename, comment_size):
+    """
+    Wipes the cache file to rebuild it from scratch.
+
+    Args:
+        edges (list): Repository data to be cached.
+        filename (str): Path to the cache file.
+        comment_size (int): Size of the header comment block.
+    """
     with open(filename, 'r') as f:
         data = []
         if comment_size > 0:
@@ -237,6 +351,13 @@ def flush_cache(edges, filename, comment_size):
             f.write(hashlib.sha256(node['node']['nameWithOwner'].encode('utf-8')).hexdigest() + ' 0 0 0 0\n')
 
 def force_close_file(data, cache_comment):
+    """
+    Forces the cache file to save partially calculated data in case of a crash or rate limit.
+
+    Args:
+        data (list): The list of strings containing repo cache states.
+        cache_comment (list): The comment block strings.
+    """
     filename = 'cache/'+hashlib.sha256(USER_NAME.encode('utf-8')).hexdigest()+'.txt'
     with open(filename, 'w') as f:
         f.writelines(cache_comment)
@@ -244,11 +365,33 @@ def force_close_file(data, cache_comment):
     print('Error writing to cache file. Saved partial data.')
 
 def stars_counter(data):
+    """
+    Counts the total number of stars across all repositories.
+
+    Args:
+        data (list): List of repository nodes containing stargazers data.
+
+    Returns:
+        int: Total star count.
+    """
     total_stars = 0
     for node in data: total_stars += node['node']['stargazers']['totalCount']
     return total_stars
 
 def svg_overwrite(filename, age_data, commit_data, star_data, repo_data, contrib_data, follower_data, loc_data):
+    """
+    Parses an SVG file and overwrites specific text elements with real-time GitHub data.
+
+    Args:
+        filename (str): The path to the SVG file.
+        age_data (str): Formatted age string.
+        commit_data (int): Total commits.
+        star_data (int): Total stars.
+        repo_data (int): Total owned repositories.
+        contrib_data (int): Total contributed repositories.
+        follower_data (int): Total followers.
+        loc_data (list): A list containing [lines_added, lines_deleted, total_net_lines].
+    """
     tree = etree.parse(filename)
     root = tree.getroot()
     justify_format(root, 'commit_data', commit_data, 22)
@@ -262,6 +405,15 @@ def svg_overwrite(filename, age_data, commit_data, star_data, repo_data, contrib
     tree.write(filename, encoding='utf-8', xml_declaration=True)
 
 def justify_format(root, element_id, new_text, length=0):
+    """
+    Updates the text of an SVG element and manipulates a secondary 'dots' element to justify text alignment.
+
+    Args:
+        root (lxml.etree.Element): The root of the XML tree.
+        element_id (str): The target SVG element ID.
+        new_text (int or str): The new data value to insert.
+        length (int, optional): The expected length of the string for justification. Defaults to 0.
+    """
     if isinstance(new_text, int):
         new_text = f"{'{:,}'.format(new_text)}"
     new_text = str(new_text)
@@ -275,11 +427,30 @@ def justify_format(root, element_id, new_text, length=0):
     find_and_replace(root, f"{element_id}_dots", dot_string)
 
 def find_and_replace(root, element_id, new_text):
-    element = root.find(f".//*[@id='{element_id}']")
-    if element is not None:
-        element.text = new_text
+    """
+    Finds a specific element by ID using XPath and replaces its text content.
+
+    Args:
+        root (lxml.etree.Element): The root of the XML tree.
+        element_id (str): The ID of the element to modify.
+        new_text (str): The text to replace the existing content.
+    """
+    elements = root.xpath(f"//*[@id='{element_id}']")
+    if elements:
+        elements[0].text = str(new_text)
+    else:
+        print(f"Warning: Element with id '{element_id}' not found in the SVG.")
 
 def commit_counter(comment_size):
+    """
+    Tally up the total commits from the saved local cache file.
+
+    Args:
+        comment_size (int): The number of lines to skip (comment block) in the cache file.
+
+    Returns:
+        int: The total commit count.
+    """
     total_commits = 0
     filename = 'cache/'+hashlib.sha256(USER_NAME.encode('utf-8')).hexdigest()+'.txt'
     with open(filename, 'r') as f:
@@ -290,6 +461,15 @@ def commit_counter(comment_size):
     return total_commits
 
 def user_getter(username):
+    """
+    Fetches the account ID and creation date of a specific GitHub user.
+
+    Args:
+        username (str): The GitHub username.
+
+    Returns:
+        tuple: ({'id': str}, str) containing the user's ID dictionary and creation timestamp.
+    """
     query_count('user_getter')
     query = '''
     query($login: String!){
@@ -303,6 +483,15 @@ def user_getter(username):
     return {'id': request.json()['data']['user']['id']}, request.json()['data']['user']['createdAt']
 
 def follower_getter(username):
+    """
+    Fetches the exact follower count for the specified user.
+
+    Args:
+        username (str): The GitHub username.
+
+    Returns:
+        int: Total number of followers.
+    """
     query_count('follower_getter')
     query = '''
     query($login: String!){
@@ -316,15 +505,43 @@ def follower_getter(username):
     return int(request.json()['data']['user']['followers']['totalCount'])
 
 def query_count(funct_id):
+    """
+    Tracks how many times specific GitHub GraphQL API endpoints are called.
+
+    Args:
+        funct_id (str): The identifier name of the function making the query.
+    """
     global QUERY_COUNT
     QUERY_COUNT[funct_id] += 1
 
 def perf_counter(funct, *args):
+    """
+    Calculates the execution time of a specific function.
+
+    Args:
+        funct (callable): The function to measure.
+        *args: Variable length argument list to pass into the target function.
+
+    Returns:
+        tuple: (Function Result, Execution Time Differential in seconds).
+    """
     start = time.perf_counter()
     funct_return = funct(*args)
     return funct_return, time.perf_counter() - start
 
 def formatter(query_type, difference, funct_return=False, whitespace=0):
+    """
+    Formats and prints the performance metrics to the console.
+
+    Args:
+        query_type (str): The label for the process being logged.
+        difference (float): The time differential calculated by perf_counter.
+        funct_return (any, optional): The returned data from the process. Defaults to False.
+        whitespace (int, optional): Spacing format padding. Defaults to 0.
+
+    Returns:
+        any: The passed funct_return data.
+    """
     print('{:<23}'.format('   ' + query_type + ':'), sep='', end='')
     print('{:>12}'.format('%.4f' % difference + ' s ')) if difference > 1 else print('{:>12}'.format('%.4f' % (difference * 1000) + ' ms'))
     if whitespace:
