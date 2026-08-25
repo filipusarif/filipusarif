@@ -22,9 +22,19 @@ def format_plural(unit):
     return 's' if unit != 1 else ''
 
 def simple_request(func_name, query, variables):
-    request = requests.post('https://api.github.com/graphql', json={'query': query, 'variables':variables}, headers=HEADERS)
-    if request.status_code == 200:
-        return request
+    max_retries = 3
+    for attempt in range(max_retries):
+        request = requests.post('https://api.github.com/graphql', json={'query': query, 'variables':variables}, headers=HEADERS)
+        if request.status_code == 200:
+            return request
+        elif request.status_code == 502:
+            print(f"502 Bad Gateway pada {func_name}. Coba ulang {attempt+1}/{max_retries}...")
+            time.sleep(3) 
+        elif request.status_code == 403:
+            print(f"403 API Limit pada {func_name}. Tunggu 5 detik...")
+            time.sleep(5) 
+        else:
+            break 
     raise Exception(func_name, ' has failed with a', request.status_code, request.text, QUERY_COUNT)
 
 def graph_repos_stars(count_type, owner_affiliation, cursor=None, add_loc=0, del_loc=0):
@@ -94,14 +104,28 @@ def recursive_loc(owner, repo_name, data, cache_comment, addition_total=0, delet
         }
     }'''
     variables = {'repo_name': repo_name, 'owner': owner, 'cursor': cursor}
-    request = requests.post('https://api.github.com/graphql', json={'query': query, 'variables':variables}, headers=HEADERS)
-    if request.status_code == 200:
-        if request.json()['data']['repository']['defaultBranchRef'] != None:
-            return loc_counter_one_repo(owner, repo_name, data, cache_comment, request.json()['data']['repository']['defaultBranchRef']['target']['history'], addition_total, deletion_total, my_commits)
-        else: return 0
+    
+    max_retries = 3
+    for attempt in range(max_retries):
+        request = requests.post('https://api.github.com/graphql', json={'query': query, 'variables':variables}, headers=HEADERS)
+        
+        if request.status_code == 200:
+            if request.json()['data']['repository']['defaultBranchRef'] != None:
+                return loc_counter_one_repo(owner, repo_name, data, cache_comment, request.json()['data']['repository']['defaultBranchRef']['target']['history'], addition_total, deletion_total, my_commits)
+            else: 
+                return 0
+        elif request.status_code == 502:
+            print(f"502 Bad Gateway di {repo_name}. Coba ulang {attempt+1}/{max_retries}...")
+            time.sleep(4) # Tunggu 4 detik
+        elif request.status_code == 403:
+            print(f"403 Rate Limit di {repo_name}. Tunggu 10 detik...")
+            time.sleep(10)
+        else:
+            break
+            
     force_close_file(data, cache_comment) 
     if request.status_code == 403:
-        raise Exception('Too many requests in a short amount of time!')
+        raise Exception('Too many requests in a short amount of time!\nYou\'ve hit the non-documented anti-abuse limit!')
     raise Exception('recursive_loc() has failed with a', request.status_code, request.text, QUERY_COUNT)
 
 def loc_counter_one_repo(owner, repo_name, data, cache_comment, history, addition_total, deletion_total, my_commits):
